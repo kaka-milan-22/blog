@@ -1,0 +1,24 @@
+[Server]
+Mode = "debug"
+Addr = "0.0.0.0:8888"
+ReadTimeout = 60
+WriteTimeout = 60
+
+[Database]
+Dialect = "mysql"
+User = "root"
+Password = "root123"
+Host = "172.17.0.1:3306"
+Name = "blog"
+Protocol = "tcp"
+Charset = "utf8mb4"
+ParseTime = "True"
+Loc = "Local"
+MaxIdleConns = 10
+MaxOpenConns = 100
+TablePrefix = "blog_"
+
+
+[Authentication]
+JwtKey = "something very secret"
+ValidHour = 24

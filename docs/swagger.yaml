@@ -1,0 +1,72 @@
+info:
+  contact:
+    email: kakazhang10@gmail.com
+    name: www.google.com
+    url: https://www.google.com
+  description: 个人博客后端API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://www.google.com
+  title: Blog API
+  version: "1.0"
+paths:
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: 添加用户
+      parameters:
+      - description: 用户名
+        in: formData
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: formData
+        name: passwd
+        required: true
+        type: string
+      - description: 邮箱
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: github
+        in: formData
+        name: github
+        type: string
+      responses:
+        "200":
+          description: 'message": fmt.Sprint(userJson.Username, " insert sucessfully!")'
+          schema:
+            type: string
+        "400":
+          description: 'message": fmt.Sprint(userJson.Username, " insert failed!"),'
+          schema:
+            type: string
+      tags:
+      - Blog文档
+  /user/:id:
+    get:
+      consumes:
+      - application/json
+      description: 通过ID查询用户信息
+      parameters:
+      - description: id
+        in: path
+        name: int
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 'error": "Record not found!"}'
+          schema:
+            type: string
+        "400":
+          description: 'data": user}'
+          schema:
+            type: string
+      tags:
+      - Blog文档
+swagger: "2.0"

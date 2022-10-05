@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: "mysql:8.0.22"
+    environment:
+      - MYSQL_ROOT_PASSWORD=OSpcUy4gljC8vnjsPDxF
+    volumes:
+      - /root/data/mysql_8/data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+  blog:
+    depends_on:
+      - db
+    build: 
+      context: ../../
+      dockerfile:  ./build/docker/Dockerfile
+    image: "blog:v1"
+    ports:
+      - "8888:8888"
+    restart: always
